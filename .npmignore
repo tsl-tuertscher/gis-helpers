@@ -2,3 +2,7 @@ src/
 .github/
 work/
 test/
+.prettierrc   
+tsconfig.json
+tslint.json       
+
