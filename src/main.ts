@@ -154,7 +154,7 @@ export function getBearing360(angle: number): number {
  * @param {number[][]} points - Points in WGS 84 / EPSG:4326 coordinates.
  * @returns {number[][]} Bounding rectangle in WGS 84 / EPSG:4326 coordinates.
  */
-export function boundingRectangle(points: number[][]): number[][] {
+export function getBoundingRectangle(points: number[][]): number[][] {
   let lonMin = 180;
   let latMin = 90;
 

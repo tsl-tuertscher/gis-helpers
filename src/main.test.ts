@@ -4,7 +4,7 @@ import {
   getDistance,
   getRadialCoordinates,
   getPointInPolygon,
-  boundingRectangle,
+  getBoundingRectangle,
 } from './main';
 import { round } from './core';
 
@@ -52,7 +52,7 @@ describe('main', () => {
   });
 
   it('boundingRectangle', () => {
-    const res = boundingRectangle([
+    const res = getBoundingRectangle([
       [8.61328125, 46.98962081759436],
       [8.8604736328125, 47.07386310181414],
       [8.9154052734375, 46.897739085507],
