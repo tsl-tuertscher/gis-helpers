@@ -18,7 +18,7 @@ import {
   getDistance,
   getRadialCoordinates,
   getPointInPolygon,
-  boundingRectangle,
+  getBoundingRectangle,
 } from '@tsl-tuertscher/gis-helpers';
 import { Vector } from '@tsl-tuertscher/gis-helpers/vector';
 
