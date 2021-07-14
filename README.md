@@ -31,6 +31,6 @@ const coordinate = getRadialCoordinates([9, 47.5], 45, 1000);
 ...
 
 const vector = new Vector(1,2,3);
-const newVecotr = vector.innerProduct(new Vector(4, 5, 6));
+const newVector = vector.innerProduct(new Vector(4, 5, 6));
 
 ```

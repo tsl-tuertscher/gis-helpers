@@ -5,7 +5,7 @@
     "lib": [ "es2015" ],
     "sourceMap": true,
     "declaration": true,
-    "outDir": "./build"
+    "outDir": "."
   },
   "exclude": [
     "node_modules",
