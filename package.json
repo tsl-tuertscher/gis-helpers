@@ -2,8 +2,8 @@
   "name": "@tsl-tuertscher/gis-helpers",
   "version": "1.0.1",
   "description": "Helper functions for geographic information system",
-  "main": "build/app.js",
-  "types": "build/app.d.ts",
+  "main": "main.js",
+  "types": "main.d.ts",
   "author": {
     "name": "Stefan Tuertscher",
     "email": "stefan@tsl-tuertscher.com",
