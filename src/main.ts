@@ -202,7 +202,7 @@ export function getBoundingRectangle(points: number[][]): number[][] {
  * @returns {boolean} Whether the point is in the polygon or not.
  */
 export function getPointInPolygon(polygon: number[][], point: number[]): boolean {
-  const bR = boundingRectangle(polygon);
+  const bR = getBoundingRectangle(polygon);
 
   let directionPoint = [];
   let intersectionCounter = 0;
