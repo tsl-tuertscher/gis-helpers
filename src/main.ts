@@ -15,6 +15,26 @@ export const earthRadius = 6378137;
 export const nauticalMile: number = 1852;
 
 /**
+ * @param {number[][]} rectangle1 - First rectangle as bounding rectangle
+ * @param {number[][]} rectangle2 - Second rectangle as bounding rectangle
+ * @returns {boolean} Whether the two rectangles intersect or not
+ */
+export function getRectangleIntersection(
+  rectangle1: number[][],
+  rectangle2: number[][]
+): boolean {
+  if (
+    rectangle1[0][0] > rectangle2[1][0] ||
+    rectangle1[1][0] < rectangle2[0][0] ||
+    rectangle1[0][1] > rectangle2[1][1] ||
+    rectangle1[1][1] < rectangle2[0][1]
+  ) {
+    return false;
+  }
+  return true;
+}
+
+/**
  * @param {number[]} startPoint - Point in WGS 84 / EPSG:4326 coordinates.
  * @param {number[]} endPoint - Point in WGS 84 / EPSG:4326 coordinates.
  * @returns {number} Distance in meters
