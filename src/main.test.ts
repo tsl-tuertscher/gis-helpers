@@ -5,7 +5,7 @@ import {
   getRadialCoordinates,
   getPointInPolygon,
   getBoundingRectangle,
-  getRectangleIntersection
+  getRectangleIntersection,
 } from './main';
 import { round } from './core';
 
@@ -71,21 +71,13 @@ describe('main', () => {
   it('getRectangleIntersection', () => {
     const res = getRectangleIntersection(
       [
-        [
-          9, 47
-        ],
-        [
-          9.5, 47.5
-        ]
+        [9, 47],
+        [9.5, 47.5],
       ],
       [
-        [
-          9.3, 47.3
-        ],
-        [
-          9.8, 47.8
-        ]
-      ]
+        [9.3, 47.3],
+        [9.8, 47.8],
+      ],
     );
     expect(res).toBe(true);
   });

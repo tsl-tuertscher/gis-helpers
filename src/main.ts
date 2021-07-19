@@ -19,10 +19,7 @@ export const nauticalMile: number = 1852;
  * @param {number[][]} rectangle2 - Second rectangle as bounding rectangle
  * @returns {boolean} Whether the two rectangles intersect or not
  */
-export function getRectangleIntersection(
-  rectangle1: number[][],
-  rectangle2: number[][]
-): boolean {
+export function getRectangleIntersection(rectangle1: number[][], rectangle2: number[][]): boolean {
   if (
     rectangle1[0][0] > rectangle2[1][0] ||
     rectangle1[1][0] < rectangle2[0][0] ||

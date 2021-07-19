@@ -12,7 +12,7 @@ const earthCircumference = 40075016.68557849;
 export function fromTileX(x: number, z: number): number {
   return (((x / Math.pow(2, z)) * 2 - 1) * earthCircumference) / 2;
 }
-  
+
 /**
  * @param {number} y - Coordinate in y
  * @param {number} z - Zoom level

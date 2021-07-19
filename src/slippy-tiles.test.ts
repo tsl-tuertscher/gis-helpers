@@ -1,15 +1,8 @@
 import { round } from './core';
-import {
-    fromTileX,
-    fromTileY,
-    tile2lon,
-    tile2lat,
-    lon2tile,
-    lat2tile
-} from './slippy-tiles';
+import { fromTileX, fromTileY, tile2lon, tile2lat, lon2tile, lat2tile } from './slippy-tiles';
 
 describe('slippy-tiles', () => {
-it('fromTileX', () => {
+  it('fromTileX', () => {
     const tile = round(fromTileX(269, 9), 4);
     expect(tile).toBe(1017529.7205);
   });
