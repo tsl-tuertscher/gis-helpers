@@ -6,7 +6,7 @@ import {
   getPointInPolygon,
   getBoundingRectangle,
   getRectangleIntersection,
-  getPointInTriangle
+  getPointInTriangle,
 } from './main';
 import { round } from './core';
 
@@ -85,36 +85,15 @@ describe('main', () => {
 
   it('getPointInTriangle', () => {
     const triangle = [
-      [
-        9.92889404296875,
-        47.32998100273299
-      ],
-      [
-        9.911727905273438,
-        47.371152062709044
-      ],
-      [
-        9.8602294921875,
-        47.337426736595404
-      ]
+      [9.92889404296875, 47.32998100273299],
+      [9.911727905273438, 47.371152062709044],
+      [9.8602294921875, 47.337426736595404],
     ];
 
-    let res = getPointInTriangle(
-      triangle,
-      [
-        9.946746826171875,
-        47.34603455771723
-      ]
-    );
+    let res = getPointInTriangle(triangle, [9.946746826171875, 47.34603455771723]);
     expect(res).toBe(false);
 
-    res = getPointInTriangle(
-      triangle,
-      [
-        9.903144836425781,
-        47.33952066009526
-      ]
-    );
+    res = getPointInTriangle(triangle, [9.903144836425781, 47.33952066009526]);
     expect(res).toBe(true);
   });
 });
