@@ -1,4 +1,4 @@
-import { round } from './core';
+import { round, sign } from './core';
 import { Vector } from './vector';
 /**
  * Radius of WGS84 sphere
@@ -13,6 +13,23 @@ export const earthRadius = 6378137;
  * @type {number} Nautical miles in meters.
  */
 export const nauticalMile: number = 1852;
+
+
+/**
+ * @param {number[][]} triangle - Triangle in EPSG:3857 coordinates.
+ * @param {number[]} point - Point in EPSG:3857 coordinates.
+ * @returns {boolean} Whether the point is in the triangle or not.
+ */
+export function getPointInTriangle(triangle: number[][], point: number[]): boolean {
+    const d1 = sign(point, triangle[0], triangle[1]);
+    const d2 = sign(point, triangle[1], triangle[2]);
+    const d3 = sign(point, triangle[2], triangle[0]);
+
+    const hasNeg = (d1 < 0) || (d2 < 0) || (d3 < 0);
+    const hasPos = (d1 > 0) || (d2 > 0) || (d3 > 0);
+
+    return !(hasNeg && hasPos);
+}
 
 /**
  * @param {number[][]} rectangle1 - First rectangle as bounding rectangle
