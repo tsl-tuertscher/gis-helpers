@@ -15,6 +15,23 @@ export const earthRadius = 6378137;
 export const nauticalMile: number = 1852;
 
 /**
+ * @param {number[][]} boundingRectangle - Rectangle in EPSG:3857 coordinates.
+ * @param {number[]} point - Point in EPSG:3857 coordinates.
+ * @returns {boolean} Whether the point is in the bounding rectangle or not.
+ */
+ export function getPointInBoundingRectangle(boundingRectangle: number[][], point: number[]): boolean {
+  if (
+    boundingRectangle[0][0] > point[0] ||
+    boundingRectangle[1][0] < point[0] ||
+    boundingRectangle[0][1] > point[1] ||
+    boundingRectangle[1][1] < point[1]
+  ) {
+    return false;
+  }
+  return true;
+}
+
+/**
  * @param {number[][]} triangle - Triangle in EPSG:3857 coordinates.
  * @param {number[]} point - Point in EPSG:3857 coordinates.
  * @returns {boolean} Whether the point is in the triangle or not.
