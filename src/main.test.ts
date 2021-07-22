@@ -7,7 +7,7 @@ import {
   getBoundingRectangle,
   getRectangleIntersection,
   getPointInTriangle,
-  getPointInBoundingRectangle
+  getPointInBoundingRectangle,
 } from './main';
 import { round } from './core';
 
@@ -105,7 +105,7 @@ describe('main', () => {
       [9.8602294921875, 47.337426736595404],
     ];
 
-    const boundingRectangle = getBoundingRectangle(triangle)
+    const boundingRectangle = getBoundingRectangle(triangle);
 
     let res = getPointInBoundingRectangle(boundingRectangle, [9.946746826171875, 47.34603455771723]);
     expect(res).toBe(false);

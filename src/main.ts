@@ -19,7 +19,7 @@ export const nauticalMile: number = 1852;
  * @param {number[]} point - Point in EPSG:3857 coordinates.
  * @returns {boolean} Whether the point is in the bounding rectangle or not.
  */
- export function getPointInBoundingRectangle(boundingRectangle: number[][], point: number[]): boolean {
+export function getPointInBoundingRectangle(boundingRectangle: number[][], point: number[]): boolean {
   if (
     boundingRectangle[0][0] > point[0] ||
     boundingRectangle[1][0] < point[0] ||
