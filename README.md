@@ -32,6 +32,7 @@ import {
   lon2tile,
   lat2tile
 } from './slippy-tiles';
+import { Matrix } from '@tsl-tuertscher/gis-helpers/matrix';
 
 ...
 
@@ -54,5 +55,11 @@ const lat = tile2lat(179, 9);
 
 const tileX = lon2tile(9.34, 12, false);
 const tileY = lat2tile(47.34, 12, false);
+
+...
+
+const mat = new Matrix();
+mat.setRotationsMatrixY(Math.PI / 2);
+const vec = mat.multiple(new Vector(1,2,3));
 
 ```
