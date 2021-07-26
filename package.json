@@ -62,7 +62,9 @@
   },
   "keywords": [
     "gis",
-    "helper"
+    "helper",
+    "vector",
+    "matrix"
   ],
   "license": "MIT"
 }
