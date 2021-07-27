@@ -1,5 +1,5 @@
 import { round } from './core';
-import { fromTileX, fromTileY, tile2lon, tile2lat, lon2tile, lat2tile } from './slippy-tiles';
+import { fromTileX, fromTileY, tile2lon, tile2lat, lon2tile, lat2tile, toTileX, toTileY } from './slippy-tiles';
 
 describe('slippy-tiles', () => {
   it('fromTileX', () => {
@@ -10,6 +10,16 @@ describe('slippy-tiles', () => {
   it('fromTileY', () => {
     const tile = round(fromTileY(179, 9), 4);
     expect(tile).toBe(6026906.8062);
+  });
+
+  it('toTileX', () => {
+    const tile = round(toTileX(1017529.7205, 9), 1);
+    expect(tile).toBe(269);
+  });
+
+  it('toTileY', () => {
+    const tile = round(toTileY(6026906.8062, 9), 1);
+    expect(tile).toBe(179);
   });
 
   it('tile2lon', () => {
