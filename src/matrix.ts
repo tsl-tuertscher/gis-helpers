@@ -22,7 +22,7 @@ export class Matrix {
    * @param {Vector} vec - Vector to subtract.
    * @returns {Vector} New vector.
    */
-  public multiple(vec: Vector): Vector {
+  public multiply(vec: Vector): Vector {
     const result = new Vector(0, 0, 0);
     result.x = this.parameters[0][0] * vec.x + this.parameters[0][1] * vec.y + this.parameters[0][2] * vec.z;
     result.y = this.parameters[1][0] * vec.x + this.parameters[1][1] * vec.y + this.parameters[1][2] * vec.z;

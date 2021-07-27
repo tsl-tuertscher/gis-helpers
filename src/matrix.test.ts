@@ -11,7 +11,7 @@ describe('matrix', () => {
   it('setRotationsMatrixX', () => {
     const mat = new Matrix();
     mat.setRotationsMatrixX(Math.PI / 2);
-    const vec = mat.multiple(new Vector(1, 2, 3));
+    const vec = mat.multiply(new Vector(1, 2, 3));
 
     expect(mat).toBeTruthy;
     expect(vec).toBeTruthy;
@@ -24,7 +24,7 @@ describe('matrix', () => {
   it('setRotationsMatrixY', () => {
     const mat = new Matrix();
     mat.setRotationsMatrixY(Math.PI / 2);
-    const vec = mat.multiple(new Vector(1, 2, 3));
+    const vec = mat.multiply(new Vector(1, 2, 3));
 
     expect(mat).toBeTruthy;
     expect(vec).toBeTruthy;
@@ -37,7 +37,7 @@ describe('matrix', () => {
   it('setRotationsMatrixZ', () => {
     const mat = new Matrix();
     mat.setRotationsMatrixZ(Math.PI / 2);
-    const vec = mat.multiple(new Vector(1, 2, 3));
+    const vec = mat.multiply(new Vector(1, 2, 3));
 
     expect(mat).toBeTruthy;
     expect(vec).toBeTruthy;
@@ -50,7 +50,7 @@ describe('matrix', () => {
   it('setRotationsMatrixBasedOnDirection', () => {
     const mat = new Matrix();
     mat.setRotationsMatrixBasedOnDirection(new Vector(1, 0, 0), Math.PI / 2);
-    let vec = mat.multiple(new Vector(1, 2, 3));
+    let vec = mat.multiply(new Vector(1, 2, 3));
 
     expect(mat).toBeTruthy;
     expect(vec).toBeTruthy;
@@ -60,7 +60,7 @@ describe('matrix', () => {
     expect(round(vec.z, 4)).toEqual(2);
 
     mat.setRotationsMatrixBasedOnDirection(new Vector(0, 1, 0), Math.PI / 2);
-    vec = mat.multiple(new Vector(1, 2, 3));
+    vec = mat.multiply(new Vector(1, 2, 3));
 
     expect(mat).toBeTruthy;
     expect(vec).toBeTruthy;
@@ -70,7 +70,7 @@ describe('matrix', () => {
     expect(round(vec.z, 4)).toEqual(-1);
 
     mat.setRotationsMatrixBasedOnDirection(new Vector(0, 0, 1), Math.PI / 2);
-    vec = mat.multiple(new Vector(1, 2, 3));
+    vec = mat.multiply(new Vector(1, 2, 3));
 
     expect(mat).toBeTruthy;
     expect(vec).toBeTruthy;

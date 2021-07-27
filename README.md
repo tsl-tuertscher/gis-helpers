@@ -60,6 +60,6 @@ const tileY = lat2tile(47.34, 12, false);
 
 const mat = new Matrix();
 mat.setRotationsMatrixY(Math.PI / 2);
-const vec = mat.multiple(new Vector(1,2,3));
+const vec = mat.multiply(new Vector(1,2,3));
 
 ```
