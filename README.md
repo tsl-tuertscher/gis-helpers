@@ -27,6 +27,8 @@ import { Vector } from '@tsl-tuertscher/gis-helpers/vector';
 import {
   fromTileX,
   fromTileY,
+  toTileX,
+  toTileY,
   tile2lon,
   tile2lat,
   lon2tile,
