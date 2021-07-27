@@ -23,6 +23,24 @@ export function fromTileY(y: number, z: number): number {
 }
 
 /**
+ * @param {number} x - Coordinate in EPSG:3857
+ * @param {number} z - Zoom level
+ * @returns {number} Tile x
+ */
+ export function toTileX(x: number, z: number): number {
+  return (Math.pow(2, z) / 2 * (1 + (2 * x / earthCircumference)));
+}
+
+/**
+ * @param {number} y - Coordinate in EPSG:3857
+ * @param {number} z - Zoom level
+ * @returns {number} Tile y
+ */
+export function toTileY(y: number, z: number): number {
+  return (Math.pow(2, z) / 2 * (1 - (2 * y / earthCircumference)));
+}
+
+/**
  * @param {number} x - Coordinate in x
  * @param {number} z - Zoom level
  * @returns {number} Longitude coordinate in WGS 84 / EPSG:4326
