@@ -27,8 +27,8 @@ export function fromTileY(y: number, z: number): number {
  * @param {number} z - Zoom level
  * @returns {number} Tile x
  */
- export function toTileX(x: number, z: number): number {
-  return (Math.pow(2, z) / 2 * (1 + (2 * x / earthCircumference)));
+export function toTileX(x: number, z: number): number {
+  return (Math.pow(2, z) / 2) * (1 + (2 * x) / earthCircumference);
 }
 
 /**
@@ -37,7 +37,7 @@ export function fromTileY(y: number, z: number): number {
  * @returns {number} Tile y
  */
 export function toTileY(y: number, z: number): number {
-  return (Math.pow(2, z) / 2 * (1 - (2 * y / earthCircumference)));
+  return (Math.pow(2, z) / 2) * (1 - (2 * y) / earthCircumference);
 }
 
 /**
