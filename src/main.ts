@@ -322,10 +322,7 @@ export function getPointInPolygon(polygon: number[][], point: number[]): boolean
  * @param {number} angle2 - Angle in degrees
  * @returns {number} Delta angle
  */
-export function getDeltaAngle(
-  angle1: number,
-  angle2: number
-): number {
+export function getDeltaAngle(angle1: number, angle2: number): number {
   const a1 = getBearing360(angle1);
   const a2 = getBearing360(angle2);
   let delta = 0;
@@ -337,7 +334,6 @@ export function getDeltaAngle(
     } else {
       return 360 - delta;
     }
-
   } else {
     delta = a2 - a1;
     if (delta < 180) {
@@ -345,7 +341,6 @@ export function getDeltaAngle(
     } else {
       return 360 - delta;
     }
-
   }
 }
 
@@ -354,10 +349,7 @@ export function getDeltaAngle(
  * @param {number} deviation - Deviation in meters
  * @returns {number[][]} Simplified points
  */
-export function simplify(
-  points: number[][],
-  deviation: number
-): number[][] {
+export function simplify(points: number[][], deviation: number): number[][] {
   if (points.length > 5) {
     const simplified: number[][] = [];
 
@@ -371,7 +363,7 @@ export function simplify(
     let distance = 0;
     let deltaAngle = 0;
 
-    simplified.push(points[0])
+    simplified.push(points[0]);
     for (i = 1; i < points.length - 1; i++) {
       bearingNext = getBearing360(getBearing(simplified[simplified.length - 1], points[i + 1]));
 
@@ -380,20 +372,18 @@ export function simplify(
 
         distance = getDistance(simplified[simplified.length - 1], points[j]);
         deltaAngle = getDeltaAngle(bearing, bearingNext);
-  
-        if (Math.sin(deltaAngle / 180 * Math.PI) * distance > deviation) {
-          simplified.push(points[i])
+
+        if (Math.sin((deltaAngle / 180) * Math.PI) * distance > deviation) {
+          simplified.push(points[i]);
           idx = i;
           break;
         }
-      };
+      }
     }
-    simplified.push(points[points.length - 1])
+    simplified.push(points[points.length - 1]);
     return simplified;
-
   } else {
     return points;
-
   }
 }
 
