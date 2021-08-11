@@ -317,6 +317,86 @@ export function getPointInPolygon(polygon: number[][], point: number[]): boolean
   }
 }
 
+/**
+ * @param {number} angle1 - Angle in degrees
+ * @param {number} angle2 - Angle in degrees
+ * @returns {number} Delta angle
+ */
+export function getDeltaAngle(
+  angle1: number,
+  angle2: number
+): number {
+  const a1 = getBearing360(angle1);
+  const a2 = getBearing360(angle2);
+  let delta = 0;
+
+  if (a1 > a2) {
+    delta = a1 - a2;
+    if (delta < 180) {
+      return delta;
+    } else {
+      return 360 - delta;
+    }
+
+  } else {
+    delta = a2 - a1;
+    if (delta < 180) {
+      return delta;
+    } else {
+      return 360 - delta;
+    }
+
+  }
+}
+
+/**
+ * @param {number[][]} points - Points in WGS 84 / EPSG:4326 coordinates.
+ * @param {number} deviation - Deviation in meters
+ * @returns {number[][]} Simplified points
+ */
+export function simplify(
+  points: number[][],
+  deviation: number
+): number[][] {
+  if (points.length > 5) {
+    const simplified: number[][] = [];
+
+    let i = 0;
+    let j = 0;
+    let idx = 1;
+
+    let bearing = 0;
+    let bearingNext = 0;
+
+    let distance = 0;
+    let deltaAngle = 0;
+
+    simplified.push(points[0])
+    for (i = 1; i < points.length - 1; i++) {
+      bearingNext = getBearing360(getBearing(simplified[simplified.length - 1], points[i + 1]));
+
+      for (j = idx; j <= i; j++) {
+        bearing = getBearing360(getBearing(simplified[simplified.length - 1], points[j]));
+
+        distance = getDistance(simplified[simplified.length - 1], points[j]);
+        deltaAngle = getDeltaAngle(bearing, bearingNext);
+  
+        if (Math.sin(deltaAngle / 180 * Math.PI) * distance > deviation) {
+          simplified.push(points[i])
+          idx = i;
+          break;
+        }
+      };
+    }
+    simplified.push(points[points.length - 1])
+    return simplified;
+
+  } else {
+    return points;
+
+  }
+}
+
 function intersection(point1: number[], point2: number[], point3: number[], point4: number[]): number[] {
   const plane1 = getPlane(point1, point2);
   const plane2 = getPlane(point3, point4);

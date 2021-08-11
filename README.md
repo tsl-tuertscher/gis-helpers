@@ -21,7 +21,8 @@ import {
   getPointInPolygon,
   getBoundingRectangle,
   getPointInTriangle,
-  getPointInBoundingRectangle
+  getPointInBoundingRectangle,
+  simplify
 } from '@tsl-tuertscher/gis-helpers';
 import { Vector } from '@tsl-tuertscher/gis-helpers/vector';
 import {
