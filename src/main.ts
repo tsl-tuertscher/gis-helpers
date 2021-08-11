@@ -347,10 +347,11 @@ export function getDeltaAngle(angle1: number, angle2: number): number {
 /**
  * @param {number[][]} points - Points in WGS 84 / EPSG:4326 coordinates.
  * @param {number} deviation - Deviation in meters
+ * @param {number} threshold - Min number of points
  * @returns {number[][]} Simplified points
  */
-export function simplify(points: number[][], deviation: number): number[][] {
-  if (points.length > 5) {
+export function simplify(points: number[][], deviation: number, threshold: number): number[][] {
+  if (points.length >= threshold) {
     const simplified: number[][] = [];
 
     let i = 0;

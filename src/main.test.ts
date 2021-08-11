@@ -273,7 +273,7 @@ describe('main', () => {
       [16.44842303000007, 47.71961288700004],
     ];
 
-    const simplified = simplify(linestring, 10);
+    const simplified = simplify(linestring, 10, 5);
     expect(simplified).toEqual([
       [16.44842303000007, 47.71961288700004],
       [16.44987308000003, 47.71974378300007],
